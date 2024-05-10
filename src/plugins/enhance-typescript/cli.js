@@ -22,3 +22,25 @@ exports.startWatcher = function startTypeScriptCompiler (inputPath, outputPath, 
   })
   return watcherProcess
 }
+
+/**
+ * Compiles the project using the TypeScript Compiler, for use during deployment.
+ * Returns the process handle.
+ */
+exports.compileProject = function compileWithTypeScriptCompiler (inputPath, outputPath, options = {}) {
+  const { update } = options
+  const watcherProcess = spawn(
+    'npx',
+    [
+      'tsc'
+    ],
+    { shell: true } // fixes issue with Windows
+  )
+  watcherProcess.stdout.on('data', (data) => { update?.status(String(data).trim()) })
+  watcherProcess.on('exit', (code) => {
+    if (code === null) return
+    update?.err(`TypeScript Compiler closed unexpectedly with code ${code}`)
+    process.exit(code)
+  })
+  return watcherProcess
+}

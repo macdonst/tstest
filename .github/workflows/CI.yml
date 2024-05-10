@@ -24,9 +24,6 @@ jobs:
       - name: Install
         run: npm install
 
-      - name: Compile
-        run: tsc
-
       - name: Run tests
         run: npm run test
 
@@ -47,9 +44,6 @@ jobs:
 
       - name: Install
         run: npm install
-
-      - name: Compile
-        run: tsc
 
       - name: Run tests
         run: npm run test
@@ -78,9 +72,6 @@ jobs:
 
       - name: Install
         run: npm install
-
-      - name: Compile
-        run: tsc
 
       - name: Run tests
         run: npm run test

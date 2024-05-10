@@ -11,6 +11,10 @@ module.exports = {
     start: async () => {
       // copy initial project files
       utils.copyProject()
+      // compile the project
+      update.start('Running tsc...')
+      watcherProcess = await tsc.compileProject()
+      update.done('tsc finished')
     }
   },
   sandbox: {
