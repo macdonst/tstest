@@ -5,7 +5,7 @@ enhance-app
 enhance/arc-plugin-enhance
 enhance/arc-plugin-styles
 enhance/styles-cribsheet
-enhance-typescript
+enhance/plugin-typescript
 
 @begin
 appID 86VHNWMK
